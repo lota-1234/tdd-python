@@ -7,8 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "hello"'
-                sh 'python3 -m py_compile sources/add2vals.py sources/calc.py'
-                stash(name: 'compiled-results', includes: 'sources/*.py*')
+                sh 'python3 setup.py bdist_wheel'
+//                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
         stage('Test') {
