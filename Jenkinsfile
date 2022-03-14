@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh 'echo "hello"'
                 sh 'source venv/bin/activate'
+                sh 'pip3.8 install wheel'
                 sh 'python3.8 setup.py bdist_wheel'
 //                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
