@@ -7,7 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'echo "hello"'
-                sh 'python3 setup.py bdist_wheel'
+                sh 'source venv/bin/activate'
+                sh 'python3.8 setup.py bdist_wheel'
 //                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
