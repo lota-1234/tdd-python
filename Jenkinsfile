@@ -9,7 +9,7 @@ pipeline {
                 script {
                     sh 'echo "initialize project"'
                     sh 'source venv/bin/activate'
-                    sh 'pip3.8 install -r requirements.txt'
+//                     sh 'pip3.8 install -r requirements.txt'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pip3.8 install db-sqlite3'
+//                 sh 'pip3.8 install db-sqlite3'
                 sh 'pip3.8 install pytest coverage'
                 sh 'pytest'
                 sh 'coverage run -m pytest'
