@@ -8,18 +8,20 @@ pipeline {
             steps {
                 script {
                     sh 'echo "initialize project"'
+                    sh 'source venv/bin/activate'
+                    sh 'pip3.8 install -r requirements.txt'
                 }
             }
         }
         stage('Build') {
             steps {
-                sh 'source venv/bin/activate'
                 sh 'pip3.8 install wheel'
                 sh 'python3.8 setup.py bdist_wheel'
             }
         }
         stage('Test') {
             steps {
+                sh 'pip3.8 install db-sqlite3'
                 sh 'pip3.8 install pytest coverage'
                 sh 'pytest'
                 sh 'coverage run -m pytest'
