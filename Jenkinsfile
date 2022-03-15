@@ -4,22 +4,31 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
+        stage("init") {
+            steps {
+                script {
+                    sh 'echo "hello"'
+                }
+            }
+        }
         stage('Build') {
             steps {
-                sh 'echo "hello"'
                 sh 'source venv/bin/activate'
                 sh 'pip3.8 install wheel'
                 sh 'python3.8 setup.py bdist_wheel'
-//                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
         stage('Test') {
             steps {
-                sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
+                sh 'pip3 install pytest coverage'
+                sh 'pytest'
+                sh 'coverage run -m pytest'
+                sh 'coverage report'
+                sh 'coverage html'
             }
             post {
                 always {
-                    junit 'test-reports/results.xml'
+                    junit 'htmlcov/index.html'
                 }
             }
         }
