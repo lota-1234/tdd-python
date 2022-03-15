@@ -7,7 +7,7 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                    sh 'echo "hello"'
+                    sh 'echo "initialize project"'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pip3 install pytest coverage'
+                sh 'pip3.8 install pytest coverage'
                 sh 'pytest'
                 sh 'coverage run -m pytest'
                 sh 'coverage report'
