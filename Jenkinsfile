@@ -52,7 +52,7 @@ pipeline {
 //         }
     }
      environment {
-        EMAIL_TO = 's.parvin@pipelinesecurity.net'
+        EMAIL_TO = 'lutfunnaharlota@gmail.com, s.parvin@pipelinesecurity.net'
     }
 
      post {
