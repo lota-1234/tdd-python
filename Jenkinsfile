@@ -10,7 +10,7 @@ pipeline {
                     sh 'echo "initialize project"'
 //                     sh 'rm -rf venv'
                     sh 'pip3.8 install virtualenv'
-                    sh './test.sh'
+//                     sh './test.sh'
 
 //                     sh 'virtualenv --version'
 //                     sh 'virtualenv -p python3 venv'
@@ -29,10 +29,10 @@ pipeline {
             steps {
 //                 sh 'pip3.8 install db-sqlite3'
                 sh 'pip3.8 install pytest coverage'
-                sh 'pytest'
-                sh 'coverage run -m pytest'
-                sh 'coverage report'
-                sh 'coverage html'
+//                 sh 'pytest'
+//                 sh 'coverage run -m pytest'
+//                 sh 'coverage report'
+//                 sh 'coverage html'
             }
             post {
                 always {
