@@ -12,8 +12,8 @@ pipeline {
                     sh 'pip3.8 install virtualenv'
 //                     sh './test.sh'
 
-//                     sh 'virtualenv --version'
-//                     sh 'virtualenv -p python3 venv'
+                  /*   sh 'virtualenv --version'
+                    sh 'virtualenv -p python3 venv' */
                     sh 'source venv/bin/activate'
                     sh 'pip3.8 install -r requirements.txt'
                 }
@@ -29,33 +29,33 @@ pipeline {
             steps {
 //                 sh 'pip3.8 install db-sqlite3'
                 sh 'pip3.8 install pytest coverage'
-//                 sh 'pytest'
-//                 sh 'coverage run -m pytest'
-//                 sh 'coverage report'
-//                 sh 'coverage html'
+   /*              sh 'pytest'
+                sh 'coverage run -m pytest'
+                sh 'coverage report'
+                sh 'coverage html' */
             }
-            post {
+            /* post {
                 always {
                     junit 'htmlcov/index.html'
                 }
+            } */
+        }
+  /*       stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
             }
         }
-//         stage('Sanity check') {
-//             steps {
-//                 input "Does the staging environment look ok?"
-//             }
-//         }
-//         stage('Deploy - Staging') {
-//             steps {
-//                 sh './deploy staging'
-//                 sh './run-smoke-tests'
-//             }
-//         }
-//         stage('Deploy - Production') {
-//             steps {
-//                 sh './deploy production'
-//             }
-//         }
+        stage('Deploy - Staging') {
+            steps {
+                sh './deploy staging'
+                sh './run-smoke-tests'
+            }
+        }
+        stage('Deploy - Production') {
+            steps {
+                sh './deploy production'
+            }
+        } */
     }
      environment {
         EMAIL_TO = 'lutfunnaharlota@gmail.com, s.parvin@pipelinesecurity.net'
