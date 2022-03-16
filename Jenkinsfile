@@ -9,6 +9,7 @@ pipeline {
                 script {
                     sh 'echo "initialize project"'
                     sh 'rm -rf venv'
+                    sh 'pip3.8 install virtualenv'
                     sh 'virtualenv -p python3 venv'
                     sh 'source venv/bin/activate'
                     sh 'pip3.8 install -r requirements.txt'
