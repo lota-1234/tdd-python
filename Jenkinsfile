@@ -58,7 +58,7 @@ pipeline {
         } */
     }
      environment {
-        EMAIL_TO = 'lutfunnaharlota@gmail.com, s.parvin@pipelinesecurity.net'
+        EMAIL_TO = 'lutfunnaharlota@gmail.com, s.parvin@pipelinesecurity.net, a.singh@pipelinesecurity.net'
     }
 
      post {
