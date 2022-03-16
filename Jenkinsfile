@@ -29,10 +29,10 @@ pipeline {
             steps {
 //                 sh 'pip3.8 install db-sqlite3'
                 sh 'pip3.8 install pytest coverage'
-   /*              sh 'pytest'
+                sh 'pytest'
                 sh 'coverage run -m pytest'
                 sh 'coverage report'
-                sh 'coverage html' */
+                sh 'coverage html'
             }
             /* post {
                 always {
