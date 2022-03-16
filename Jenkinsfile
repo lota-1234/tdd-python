@@ -8,9 +8,9 @@ pipeline {
             steps {
                 script {
                     sh 'echo "initialize project"'
-                    sh 'rm -rf venv'
+//                     sh 'rm -rf venv'
                     sh 'pip3.8 install virtualenv'
-                    sh 'virtualenv -p python3 venv'
+//                     sh 'virtualenv -p python3 venv'
                     sh 'source venv/bin/activate'
                     sh 'pip3.8 install -r requirements.txt'
                 }
@@ -59,15 +59,15 @@ pipeline {
     }
 
      post {
-            failure {
-                emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}',
+         failure {
+               emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}',
                         to: "${EMAIL_TO}",
                         subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
             }
-            unstable {
-            emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}',
-                    to: "${EMAIL_TO}",
-                    subject: 'Unstable build in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
+        unstable {
+               emailext body: 'Check console output at $BUILD_URL to view the results. \n\n ${CHANGES} \n\n -------------------------------------------------- \n${BUILD_LOG, maxLines=100, escapeHtml=false}',
+                to: "${EMAIL_TO}",
+                subject: 'Unstable build in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER'
         }
         changed {
             emailext body: 'Check console output at $BUILD_URL to view the results.',
