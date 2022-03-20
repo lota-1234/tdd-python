@@ -40,22 +40,23 @@ pipeline {
                 }
             } */
         }
-  /*       stage('Sanity check') {
+      /*  stage('Sanity check') {
             steps {
                 input "Does the staging environment look ok?"
             }
-        }
+        } */
         stage('Deploy - Staging') {
             steps {
-                sh './deploy staging'
-                sh './run-smoke-tests'
+                sh 'chmod u+x deploy_staging.sh'
+//                 sh './deploy staging'
+//                 sh './run-smoke-tests'
             }
         }
         stage('Deploy - Production') {
             steps {
                 sh './deploy production'
             }
-        } */
+        }
     }
      environment {
         EMAIL_TO = 'lutfunnaharlota@gmail.com, s.parvin@pipelinesecurity.net, a.singh@pipelinesecurity.net'
