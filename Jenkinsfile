@@ -56,6 +56,7 @@ pipeline {
             steps {
                 sh 'chmod u+x deploy_dev.sh'
                 sh './deploy_dev.sh'
+                sh 'echo "complete CICD"'
             }
         }
     }
