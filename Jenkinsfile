@@ -40,18 +40,18 @@ pipeline {
                 }
             } */
         }
-      /*  stage('Sanity check') {
+  /*       stage('Sanity check') {
             steps {
                 input "Does the staging environment look ok?"
             }
-        } */
+        }
         stage('Deploy - Staging') {
             steps {
-                sh 'chmod u+x deploy_staging.sh'
-//                 sh './deploy_staging.sh'
+                sh './deploy staging'
+                sh './run-smoke-tests'
             }
         }
-        /* stage('Deploy - Dev server') {
+        stage('Deploy - Production') {
             steps {
                 sh './deploy production'
             }
