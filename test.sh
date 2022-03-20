@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PYTHON_PATH=/usr/bin/python3
+PYTHON_PATH=/usr/local/bin/python3.8
 
 
 ENV_NAME="testenv"
