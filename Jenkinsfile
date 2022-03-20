@@ -48,13 +48,14 @@ pipeline {
         stage('Deploy - Staging') {
             steps {
                 sh 'chmod u+x deploy_staging.sh'
-//                 sh './deploy staging'
+                sh './deploy_staging.sh'
 //                 sh './run-smoke-tests'
             }
         }
-        stage('Deploy - Production') {
+        stage('Deploy - Dev') {
             steps {
-                sh './deploy production'
+                sh 'chmod u+x deploy_dev.sh'
+                sh './deploy_dev.sh'
             }
         }
     }
