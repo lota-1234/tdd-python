@@ -4,10 +4,10 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage("init") {
+        stage("Init Stage") {
             steps {
                 script {
-                    sh 'echo "initialize project"'
+                    sh 'echo "-------------initialize project-----------------"'
 //                     sh 'rm -rf venv'
                     sh 'pip3.8 install virtualenv'
 //                     sh './test.sh'
@@ -56,7 +56,7 @@ pipeline {
             steps {
                 sh 'chmod u+x deploy_dev.sh'
                 sh './deploy_dev.sh'
-                sh 'echo "CICD completed"'
+                sh 'echo "-------------CICD Completed-------------"'
             }
         }
     }

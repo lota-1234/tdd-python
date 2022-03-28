@@ -7,7 +7,7 @@
 #
 #ssh ${REMOTE_USER}@${REMOTE_MACHINE_IP} "mkdir -p ${DEPLOYMENT_DIR}"
 #scp * ${REMOTE_USER}@${REMOTE_MACHINE_IP}:${DEPLOYMENT_DIR}
-echo "Start deploy staging"
-echo "Connecting deployment server"
-echo "Complete staging"
+echo "-------------Start deploy staging-------------"
+echo "-------------Connecting deployment server-------------"
+echo "-------------Complete staging-------------"
 
