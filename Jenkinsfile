@@ -19,6 +19,12 @@ pipeline {
                 sh 'pip3.8 install wheel'
                 sh 'python3.8 setup.py bdist_wheel'
             }
+            post {
+                success {
+                    archiveArtifacts "${env.BUILD_ID}/sources/dist/flaskr-1.0.0-py3-none-any.whl"
+                    sh "rm -rf build dist"
+                }
+            }
         }
         stage('Test') {
             steps {
@@ -31,8 +37,8 @@ pipeline {
             }
              post {
                 always {
-//                     junit 'htmlcov/index.html'
-                    junit 'test-reports/results.xml'
+                    junit 'htmlcov/index.html'
+//                     junit 'test-reports/results.xml'
                 }
             }
         }
