@@ -21,7 +21,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts "${env.BUILD_ID}/sources/dist/flaskr-1.0.0-py3-none-any.whl"
+                    archiveArtifacts "${env.BUILD_ID}/dist/flaskr-1.0.0-py3-none-any.whl"
                     sh "rm -rf build dist"
                 }
             }
