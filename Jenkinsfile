@@ -8,12 +8,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo "-------------initialize project-----------------"'
-//                     sh 'rm -rf venv'
                     sh 'pip3.8 install virtualenv'
-//                     sh './test.sh'
-
-                  /*   sh 'virtualenv --version'
-                    sh 'virtualenv -p python3 venv' */
                     sh 'source venv/bin/activate'
                     sh 'pip3.8 install -r requirements.txt'
                 }
@@ -27,18 +22,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-//                 sh 'pip3.8 install db-sqlite3'
                 sh 'pip3.8 install pytest coverage'
+                sh 'py.test --junit-xml test-reports/results.xml'
 /*                 sh 'pytest'
                 sh 'coverage run -m pytest'
                 sh 'coverage report'
                 sh 'coverage html' */
             }
-            /* post {
+             post {
                 always {
-                    junit 'htmlcov/index.html'
+//                     junit 'htmlcov/index.html'
+                    junit 'test-reports/results.xml'
                 }
-            } */
+            }
         }
       /*  stage('Sanity check') {
             steps {
