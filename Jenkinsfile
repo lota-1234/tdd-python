@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'pip3.8 install pytest coverage'
-                sh 'py.test --junit-xml test-reports/results.xml'
+                sh 'python3.8 -m pytest test.py --junit-xml test-reports/results.xml'
 /*                 sh 'pytest'
                 sh 'coverage run -m pytest'
                 sh 'coverage report'
