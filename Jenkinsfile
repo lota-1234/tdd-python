@@ -22,7 +22,7 @@ pipeline {
             post {
                 success {
                     sh "pwd"
-                    archiveArtifacts "/var/lib/jenkins/workspace/python-test-project/dist/flaskr-1.0.0-py3-none-any.whl"
+                    archiveArtifacts artifacts "dist/"
                     sh "rm -rf build dist"
                 }
             }
