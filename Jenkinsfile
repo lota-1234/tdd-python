@@ -19,18 +19,19 @@ pipeline {
                 sh 'pip3.8 install wheel'
                 sh 'python3.8 setup.py bdist_wheel'
             }
-            post {
+          /*   post {
                 success {
                     sh "pwd"
                     archiveArtifacts artifacts "dist/"
                     sh "rm -rf build dist"
                 }
-            }
+            } */
         }
         stage('Test') {
             steps {
                 sh 'pip3.8 install pytest coverage'
-                sh 'python3.8 -m pytest test.py --junit-xml test-reports/results.xml'
+                sh 'python3.8 -m pytest --junit-xml test-reports/results.xml'
+//                 sh 'python3.8 -m pytest test.py --junit-xml test-reports/results.xml'
 /*                 sh 'pytest'
                 sh 'coverage run -m pytest'
                 sh 'coverage report'
