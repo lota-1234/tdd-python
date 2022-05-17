@@ -39,8 +39,8 @@ pipeline {
             }
              post {
                 always {
-                    junit 'htmlcov/index.html'
-//                     junit 'test-reports/results.xml'
+//                     junit 'htmlcov/index.html'
+                    junit 'test-reports/results.xml'
                 }
             }
         }
